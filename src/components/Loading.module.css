@@ -1,0 +1,31 @@
+/* From Uiverse.io by PriyanshuGupta28 */
+.customLoader {
+  width: 50px;
+  height: 50px;
+  display: grid;
+}
+
+.customLoader::before,
+.customLoader::after {
+  content: "";
+  grid-area: 1/1;
+  --c: radial-gradient(farthest-side, #dba803 92%, rgba(179, 53, 53, 0));
+  background: var(--c) 50% 0, var(--c) 50% 100%, var(--c) 100% 50%,
+    var(--c) 0 50%;
+  background-size: 12px 12px;
+  background-repeat: no-repeat;
+  animation: s2 1s infinite;
+}
+
+.customLoader::before {
+  margin: 4px;
+  filter: hue-rotate(45deg);
+  background-size: 8px 8px;
+  animation-timing-function: linear;
+}
+
+@keyframes s2 {
+  100% {
+    transform: rotate(0.5turn);
+  }
+}

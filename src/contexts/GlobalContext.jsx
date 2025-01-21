@@ -6,17 +6,26 @@ const key = "a0952167-2907-4991-8196-94349ac396d8";
 
 function GlobalContextProv({ children }) {
   const [params, setParams] = useState();
+  const [recipes, setRecipes] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   async function handleSubmit(e) {
     e.preventDefault();
     try {
+      setLoading(true);
       const res = await fetch(
         `https://forkify-api.herokuapp.com/api/v2/recipes?search=${params}&key=${key}`
       );
       const data = await res.json();
+      if (data?.data?.recipes) {
+        setRecipes(data?.data?.recipes);
+      }
       console.log(data);
     } catch (e) {
       console.log(e);
+    } finally {
+      setLoading(false);
+      setParams("");
     }
   }
 
@@ -26,6 +35,8 @@ function GlobalContextProv({ children }) {
         params: params,
         setParams: setParams,
         handleSubmit: handleSubmit,
+        loading: loading,
+        recipes: recipes,
       }}
     >
       {children}

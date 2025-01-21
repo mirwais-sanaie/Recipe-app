@@ -3,7 +3,6 @@ import { useGlobalContext } from "../contexts/GlobalContext";
 
 export default function Navigation() {
   const { params, setParams, handleSubmit } = useGlobalContext();
-  console.log(params);
   return (
     <nav>
       <div className="container mx-auto py-5 grid grid-cols-3 items-center">
@@ -15,6 +14,7 @@ export default function Navigation() {
           <form action="" onSubmit={(e) => handleSubmit(e)}>
             <input
               type="text"
+              value={params || ""}
               className="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md pl-3 pr-10 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
               onChange={(e) => setParams(e.target.value)}
               placeholder="Enter your text"
@@ -41,15 +41,15 @@ export default function Navigation() {
 
         <div className="flex ms-auto space-x-7">
           <div className="group cursor-pointer">
-            <Link to="">Home</Link>
+            <Link to="/">Home</Link>
             <div className="mx-2 group-hover:border-b group-hover:border-b-black"></div>
           </div>
           <div className="group cursor-pointer">
-            <Link to={"favorates"}>Menu</Link>
+            <Link to={"/favorates"}>Menu</Link>
             <div className="mx-2 group-hover:border-b group-hover:border-b-black"></div>
           </div>
           <div className="group cursor-pointer">
-            <Link to={"details"}>About us</Link>
+            <Link to={"/details"}>About us</Link>
             <div className="mx-2 group-hover:border-b group-hover:border-b-black"></div>
           </div>
         </div>

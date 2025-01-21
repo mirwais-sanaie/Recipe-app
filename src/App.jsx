@@ -12,9 +12,9 @@ export default function App() {
         <Navigation />
 
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/favorates" element={<Favorates />} />
-          <Route path="/details" element={<Details />} />
+          <Route path="" element={<HomePage />} />
+          <Route path="favorates" element={<Favorates />} />
+          <Route path="details" element={<Details />} />
           <Route path="*" element={<h1>Page not found</h1>} />
         </Routes>
       </GlobalContextProv>
