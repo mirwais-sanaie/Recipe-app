@@ -6,15 +6,21 @@ function HomePage() {
   const { loading, recipes } = useGlobalContext();
 
   if (loading) {
-    return <Loading />;
+    return (
+      <div className="flex justify-center mt-60">
+        <Loading />
+      </div>
+    );
   }
   return (
-    <div className="grid grid-cols-4">
-      {recipes && recipes.length > 0 ? (
-        recipes.map((el) => <RecipeItem recipeItem={el} />)
-      ) : (
-        <div>Search to get the recipe you want...</div>
-      )}
+    <div className="container mx-auto">
+      <div className="grid gap-5 grid-cols-4 mt-12">
+        {recipes && recipes.length > 0 ? (
+          recipes.map((el) => <RecipeItem recipeItem={el} />)
+        ) : (
+          <div>Search to get the recipe you want...</div>
+        )}
+      </div>
     </div>
   );
 }
