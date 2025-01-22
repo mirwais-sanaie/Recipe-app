@@ -14,7 +14,7 @@ export default function App() {
         <Routes>
           <Route path="" element={<HomePage />} />
           <Route path="favorates" element={<Favorates />} />
-          <Route path="details" element={<Details />} />
+          <Route path="detail/:id" element={<Details />} />
           <Route path="*" element={<h1>Page not found</h1>} />
         </Routes>
       </GlobalContextProv>

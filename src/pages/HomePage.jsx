@@ -16,9 +16,9 @@ function HomePage() {
     <div className="container mx-auto">
       <div className="grid gap-5 grid-cols-4 mt-12">
         {recipes && recipes.length > 0 ? (
-          recipes.map((el) => <RecipeItem recipeItem={el} />)
+          recipes.map((el) => <RecipeItem key={el.id} recipeItem={el} />)
         ) : (
-          <div>Search to get the recipe you want...</div>
+          <div className="col-span-2">Search to get the recipe you want...</div>
         )}
       </div>
     </div>

@@ -8,6 +8,7 @@ function GlobalContextProv({ children }) {
   const [params, setParams] = useState();
   const [recipes, setRecipes] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [detailRecipe, setDetailRecipe] = useState(null);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -20,7 +21,6 @@ function GlobalContextProv({ children }) {
       if (data?.data?.recipes) {
         setRecipes(data?.data?.recipes);
       }
-      console.log(data);
     } catch (e) {
       console.log(e);
     } finally {
@@ -37,6 +37,9 @@ function GlobalContextProv({ children }) {
         handleSubmit: handleSubmit,
         loading: loading,
         recipes: recipes,
+        setLoading,
+        detailRecipe,
+        setDetailRecipe,
       }}
     >
       {children}
