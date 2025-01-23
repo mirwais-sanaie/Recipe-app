@@ -7,7 +7,12 @@ export default function Navigation() {
     <nav>
       <div className="container mx-auto py-5 grid grid-cols-3 items-center">
         <div className="flex-1">
-          <h1 className="font-bold text-2xl font-Roboto">Recipe App</h1>
+          <Link
+            to={"/"}
+            className="font-bold text-2xl font-Roboto cursor-pointer"
+          >
+            Recipe App
+          </Link>
         </div>
 
         <div className="relative top-1">
@@ -45,23 +50,10 @@ export default function Navigation() {
             <div className="mx-2 group-hover:border-b group-hover:border-b-black"></div>
           </div>
           <div className="group cursor-pointer">
-            <Link to={"/favorates"}>Menu</Link>
-            <div className="mx-2 group-hover:border-b group-hover:border-b-black"></div>
-          </div>
-          <div className="group cursor-pointer">
-            <Link to={"/details"}>About us</Link>
+            <Link to={"/favorates"}>Favorates</Link>
             <div className="mx-2 group-hover:border-b group-hover:border-b-black"></div>
           </div>
         </div>
-        {/* 
-        <div className="flex space-x-4">
-          <div>
-            <a href="">Add list</a>
-          </div>
-          <div>
-            <a href="">Log in</a>
-          </div>
-        </div> */}
       </div>
     </nav>
   );

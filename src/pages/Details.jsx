@@ -5,8 +5,14 @@ import Loading from "../components/Loading";
 
 function Details() {
   const { id } = useParams();
-  const { loading, setLoading, detailRecipe, setDetailRecipe } =
-    useGlobalContext();
+  const {
+    loading,
+    setLoading,
+    detailRecipe,
+    setDetailRecipe,
+    handleSaveFavorate,
+    favorateList,
+  } = useGlobalContext();
 
   useEffect(
     function () {
@@ -55,13 +61,22 @@ function Details() {
           <h1 className="text-2xl font-black mb-5">
             {detailRecipe?.data.recipe?.title}
           </h1>
-          <button className="w-full bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600">
-            Add to List
+          <button
+            onClick={() => handleSaveFavorate(detailRecipe?.data.recipe)}
+            className="w-full bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600"
+          >
+            {favorateList &&
+            favorateList.length > 0 &&
+            favorateList.findIndex(
+              (el) => el.id === detailRecipe.data.recipe.id
+            ) !== -1
+              ? "Remove from list"
+              : "Add to List"}
           </button>
         </div>
       </div>
       {/* Ingredients Section */}
-      <div className="mt-12">
+      <div className="mt-12 pb-12">
         <h2 className="text-2xl font-bold mb-4">Ingredients</h2>
         <ol className="list-decimal grid grid-cols-3 gap-y-4">
           {detailRecipe?.data?.recipe?.ingredients.map((ingredient, index) => (
